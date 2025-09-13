@@ -9,12 +9,29 @@
   <meta name="description" content="Мамин хлеб — домашняя выпечка: хлеб на закваске, самса, курник, бургеры, лаваш. Всегда свежая продукция. 📍 Видова 169–175. Тел.: +7 (989) 854-66-91" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#800020" />
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="logo-min-64.png" sizes="64x64">
-  <link rel="apple-touch-icon" href="logo-min-512.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/logo-min-64.png" sizes="64x64">
+  <link rel="apple-touch-icon" href="/logo-min-512.png">
   <link rel="canonical" href="https://maminhlebb.ru/" />
   <link rel="alternate" hreflang="ru" href="https://maminhlebb.ru/" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <!-- Расширенные мета под локальный поиск -->
+  <meta name="keywords" content="пекарня Новороссийск, Мамин хлеб, домашняя выпечка, хлеб на закваске, самса, курник, пироги, лаваш, бургеры" />
+  <meta name="author" content="Мамин хлеб" />
+  <meta name="geo.region" content="RU-KDA" />
+  <meta name="geo.placename" content="Новороссийск" />
+  <meta name="geo.position" content="44.724;37.769" />
+  <meta name="ICBM" content="44.724, 37.769" />
+
+  <!-- Дополнительные OG для локального бизнеса -->
+  <meta property="og:type" content="business.business" />
+  <meta property="business:contact_data:street_address" content="Видова 169–175" />
+  <meta property="business:contact_data:locality" content="Новороссийск" />
+  <meta property="business:contact_data:region" content="Краснодарский край" />
+  <meta property="business:contact_data:country_name" content="Россия" />
+  <meta property="business:contact_data:phone_number" content="+7 (989) 854-66-91" />
+
 
 
   <!-- Open Graph / Twitter -->
@@ -101,85 +118,199 @@
     @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
   </style>
 
-  <!-- JSON-LD: Local Business (Bakery) -->
-  <script type="application/ld+json">
+  <!-- JSON-LD: Local Business (Bakery) — Новороссийск -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Bakery",
+    "@id": "https://maminhlebb.ru/#bakery",
     "name": "Мамин хлеб",
     "url": "https://maminhlebb.ru/",
     "image": [
-      "https://maminhlebb.ru./images/bread.jpg",
-      "https://maminhlebb.ru./images/samsa.jpg",
-      "https://maminhlebb.ru./images/burger.jpg"
+      "https://maminhlebb.ru/images/bread.jpg",
+      "https://maminhlebb.ru/images/samsa.jpg",
+      "https://maminhlebb.ru/images/burger.jpg"
     ],
     "telephone": "+7-989-854-66-91",
     "priceRange": "₽₽",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Видова 169-175",
+      "streetAddress": "Видова 169–175",
+      "addressLocality": "Новороссийск",
+      "addressRegion": "Краснодарский край",
       "addressCountry": "RU"
     },
-    "servesCuisine": "Выпечка, пироги, бургеры"
+    "areaServed": "Новороссийск",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 44.724,
+      "longitude": 37.769
+    },
+    "servesCuisine": "Выпечка, пироги, бургеры",
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "21:00"
+    }]
   }
   </script>
+  
 
   <!-- JSON-LD: Products -->
-  <script type="application/ld+json">
+<script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@graph":[
       {
         "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-sosiska",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
         "name":"Сосиска в тесте",
-        "image":"https://maminhlebb.ru./images/sosiska.jpg",
-        "description":"Хрустящее тесто и сочная сосиска — классика!",
+        "image":"https://maminhlebb.ru/images/sosiska.jpg",
+        "description":"Хрустящая сосиска в воздушном тесте — классика для перекуса.",
         "url":"https://maminhlebb.ru/#p-sosiska",
-        "offers":{"@type":"Offer","price":"80","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+        "offers":{"@type":"Offer","price":"80","priceCurrency":"RUB","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition"}
       },
       {
         "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-samsa-chicken",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
         "name":"Самса с курицей",
-        "image":"https://maminhlebb.ru./images/samsa.jpg",
+        "image":"https://maminhlebb.ru/images/samsa.jpg",
         "description":"Традиционная самса с нежной курицей и специями.",
         "url":"https://maminhlebb.ru/#p-samsa-chicken",
-        "offers":{"@type":"Offer","price":"150","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+        "offers":{"@type":"Offer","price":"150","priceCurrency":"RUB","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition"}
       },
       {
         "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-samsa-beef",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
         "name":"Самса с говядиной",
-        "image":"https://maminhlebb.ru./images/samsa.jpg",
-        "description":"Классическая самса с говядиной и пряностями.",
+        "image":"https://maminhlebb.ru/images/samsa_govyadina.jpg",
+        "description":"Самса с сочной говядиной, луком и зирой.",
         "url":"https://maminhlebb.ru/#p-samsa-beef",
-        "offers":{"@type":"Offer","price":"160","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+        "offers":{"@type":"Offer","price":"160","priceCurrency":"RUB","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition"}
       },
       {
         "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-pizza",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
         "name":"Маленькая пицца",
-        "image":"https://maminhlebb.ru./images/pizza.png",
-        "description":"Персональная пицца с томатным соусом, моцареллой и базиликом.",
+        "image":"https://maminhlebb.ru/images/pizza.jpg",
+        "description":"Домашнее тесто, пепперони, помидоры, перец и сыр.",
         "url":"https://maminhlebb.ru/#p-pizza",
+        "offers":{"@type":"Offer","price":"150","priceCurrency":"RUB","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition"}
+      },
+      {
+        "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-bread",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
+        "name":"Хлеб на закваске",
+        "image":"https://maminhlebb.ru/images/bread.jpg",
+        "description":"Домашний ржано-пшеничный хлеб с хрустящей корочкой.",
+        "offers":{
+          "@type":"AggregateOffer",
+          "lowPrice":"30",
+          "highPrice":"50",
+          "priceCurrency":"RUB",
+          "offerCount":"2",
+          "availability":"https://schema.org/InStock"
+        }
+      },
+      {
+        "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-matnakash",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
+        "name":"Матнакаш",
+        "image":"https://maminhlebb.ru/images/matnakash.jpg",
+        "description":"Традиционный армянский хлеб, мягкий и ароматный.",
+        "url":"https://maminhlebb.ru/#p-lavash",
+        "offers":{"@type":"Offer","price":"50","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-chabat",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
+        "name":"Чабат",
+        "image":"https://maminhlebb.ru/images/chabat.jpg",
+        "description":"Пирог с куриным филе, овощами, грибами и белым соусом.",
         "offers":{"@type":"Offer","price":"150","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
       },
       {
         "@type":"Product",
-        "name":"Лаваш",
-        "image":"https://maminhlebb.ru./images/lavash.png",
-        "description":"Тонкий, мягкий лаваш — основа для шавермы и сендвичей.",
-        "url":"https://maminhlebb.ru/#p-lavash",
-        "offers":{"@type":"Offer","price":"80","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
-      },
-      {
-        "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-burger",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
         "name":"Бургеры",
-        "image":"https://maminhlebb.ru./images/burger.jpg",
+        "image":"https://maminhlebb.ru/images/burger.jpg",
         "description":"Домашние бургеры с сочной котлетой, сыром и овощами.",
         "url":"https://maminhlebb.ru/#p-burger",
         "offers":{"@type":"Offer","price":"250","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-pizza-square",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
+        "name":"Пицца квадратная",
+        "image":"https://maminhlebb.ru/images/pizza_square.jpg",
+        "description":"Свино-говяжий фарш, помидоры, болгарский перец и сыр.",
+        "url":"https://maminhlebb.ru/#p-pizza-square",
+        "offers":{"@type":"Offer","price":"150","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-hotdog",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
+        "name":"Хот-дог",
+        "image":"https://maminhlebb.ru/images/hotdog.jpg",
+        "description":"Копчёная сосиска, салат айсберг, овощи, горчица и чесночный соус.",
+        "url":"https://maminhlebb.ru/#p-hotdog",
+        "offers":{"@type":"Offer","price":"150","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-kish",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
+        "name":"Киш",
+        "image":"https://maminhlebb.ru/images/kish.jpg",
+        "description":"Картошка, куриное филе, жареный лук, грибы, сыр и белый соус.",
+        "url":"https://maminhlebb.ru/#p-kish",
+        "offers":{"@type":"Offer","price":"150","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-valovan-kapusta",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
+        "name":"Валован (капуста и куриное филе)",
+        "image":"https://maminhlebb.ru/images/valovan_kapusta.jpg",
+        "description":"Слоёное тесто, капуста и куриное филе.",
+        "url":"https://maminhlebb.ru/#p-valovan-kapusta",
+        "offers":{"@type":"Offer","price":"150","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-valovan-potato",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
+        "name":"Валован (картошка, курица, грибы)",
+        "image":"https://maminhlebb.ru/images/valovan_potato.jpg",
+        "description":"Слоёное тесто, картошка, курица и грибы.",
+        "url":"https://maminhlebb.ru/#p-valovan-potato",
+        "offers":{"@type":"Offer","price":"150","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "@id":"https://maminhlebb.ru/#product-xichin",
+        "brand":{"@type":"Brand","name":"Мамин хлеб"},
+        "name":"Хичин",
+        "image":"https://maminhlebb.ru/images/xichin.jpg",
+        "description":"Тонкая лепёшка с тремя видами сыра, приготовленная без масла.",
+        "url":"https://maminhlebb.ru/#p-xichin",
+        "offers":{"@type":"Offer","price":"200","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
       }
     ]
   }
   </script>
+  
 </head>
 <body>
 
@@ -208,27 +339,27 @@
   <div class="slider-container" aria-label="Галерея продукции">
     <div class="slider">
       <div class="slide">
-        <img src="./images/bread.jpg" alt="Свежий хлеб из печи" decoding="async" fetchpriority="high">
+        <img src="../images/bread_slider.jpg" alt="Свежий хлеб из печи" decoding="async" fetchpriority="high">
         <div class="slide-content"><h3>Свежий хлеб каждый день</h3><p>Только натуральные ингредиенты</p></div>
         <div class="steam" aria-hidden="true"></div>
       </div>
       <div class="slide">
-        <img src="./images/samsa.jpg" alt="Самса с курицей" loading="lazy" decoding="async">
+        <img src="../images/samsa.jpg" alt="Самса с курицей" loading="lazy" decoding="async">
         <div class="slide-content"><h3>Ароматная самса с курицей</h3><p>Хрустящее тесто, сочная начинка — как у бабушки</p></div>
         <div class="steam" aria-hidden="true"></div>
       </div>
       <div class="slide">
-        <img src="./images/kurnik.jpg" alt="Праздничный курник" loading="lazy" decoding="async">
+        <img src="../images/kurnik.jpg" alt="Праздничный курник" loading="lazy" decoding="async">
         <div class="slide-content"><h3>Праздничный курник</h3><p>Традиционный русский пирог с грибами и яйцами</p></div>
         <div class="steam" aria-hidden="true"></div>
       </div>
       <div class="slide">
-        <img src="./images/burger.jpg" alt="Домашние бургеры" loading="lazy" decoding="async">
+        <img src="../images/burger.jpg" alt="Домашние бургеры" loading="lazy" decoding="async">
         <div class="slide-content"><h3>Домашние бургеры</h3><p>Сочные котлеты, свежие овощи, мягкие булочки</p></div>
         <div class="steam" aria-hidden="true"></div>
       </div>
       <div class="slide">
-        <img src="./images/sosiska.jpg" alt="Сосиска в тесте" loading="lazy" decoding="async">
+        <img src="../images/sosiska.jpg" alt="Сосиска в тесте" loading="lazy" decoding="async">
         <div class="slide-content"><h3>Сосиска в тесте — быстрый перекус</h3><p>Идеально для работы, школы, прогулки</p></div>
         <div class="steam" aria-hidden="true"></div>
       </div>
@@ -267,8 +398,8 @@
         </div>
       </div>
 
-      <div class="product-card" id="p-samsa-beef" onclick="openModal('Самса с говядиной', './images/samsa.jpg', 'Насыщенная говядина с луком и зирой в хрустящей корочке.', '160 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-        <img src="./images/samsa.jpg" alt="Самса с говядиной" class="product-img" loading="lazy" decoding="async" itemprop="image">
+      <div class="product-card" id="p-samsa-beef" onclick="openModal('Самса с говядиной', './images/samsa_govyadina.jpg', 'Насыщенная говядина с луком и зирой в хрустящей корочке.', '160 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="./images/samsa_govyadina.jpg" alt="Самса с говядиной" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
           <h3 itemprop="name">Самса с говядиной</h3>
           <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">160</span> ₽</p>
@@ -276,12 +407,12 @@
         </div>
       </div>
 
-      <div class="product-card" id="p-pizza" onclick="openModal('Маленькая пицца', './images/pizza.png', 'Персональная пицца с томатным соусом, моцареллой и базиликом.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-        <img src="./images/pizza.png" alt="Маленькая пицца" class="product-img" loading="lazy" decoding="async" itemprop="image">
+      <div class="product-card" id="p-pizza" onclick="openModal('Маленькая пицца', './images/pizza.jpg', 'Домашнее тесто, пепперони, помидоры, перец и сыр.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="./images/pizza.jpg" alt="Маленькая пицца" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
           <h3 itemprop="name">Маленькая пицца</h3>
           <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">150</span> ₽</p>
-          <p class="description" itemprop="description">Идеальный размер для одного — свежая и горячая!</p>
+          <p class="description" itemprop="description">Домашнее тесто, пепперони, помидоры, перец и сыр.</p>
         </div>
       </div>
 
@@ -294,21 +425,21 @@
         </div>
       </div>
 
-      <div class="product-card" id="p-lavash" onclick="openModal('Лаваш', './images/lavash.png', 'Тонкий, мягкий лаваш — основа для шавермы и сендвичей.', '80 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-        <img src="./images/lavash.png" alt="Лаваш тонкий и мягкий" class="product-img" loading="lazy" decoding="async" itemprop="image">
+      <div class="product-card" id="p-lavash" onclick="openModal('Матнакаш', './images/matnakash.jpg', 'Тонкий, мягкий лаваш — основа для шавермы и сендвичей.', '50 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="./images/matnakash.jpg" alt="Лаваш тонкий и мягкий" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
-          <h3 itemprop="name">Лаваш</h3>
-          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">80</span> ₽</p>
+          <h3 itemprop="name">Матнакаш</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">50</span> ₽</p>
           <p class="description" itemprop="description">Свежий, без консервантов — как у бабушки.</p>
         </div>
       </div>
 
-      <div class="product-card" onclick="openModal('Чабат', './images/pizza.jpg', 'Пирог с курицей, овощами и грибами.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-        <img src="./images/pizza.jpg" alt="Чабат — пирог с курицей и овощами" class="product-img" loading="lazy" decoding="async" itemprop="image">
+      <div class="product-card" onclick="openModal('Чабат', './images/chabat.jpg', 'Куриное филе, 2 вида сыра,помидоры, болгарский перец, грибы и белый соус.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="./images/chabat.jpg" alt="Чабат — пирог с курицей и овощами" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
           <h3 itemprop="name">Чабат</h3>
           <p class="price"><span>150</span> ₽</p>
-          <p class="description" itemprop="description">Пирог с курицей, овощами и грибами.</p>
+          <p class="description" itemprop="description">Куриное филе, 2 вида сыра, помидоры, болгарский перец, грибы и белый соус.</p>
         </div>
       </div>
 
@@ -320,7 +451,66 @@
           <p class="description" itemprop="description">Свежие булочки, сочная котлета и домашний соус.</p>
         </div>
       </div>
+
+    <div class="product-card" id="p-pizza-square" onclick="openModal('Пицца квадратная', './images/pizza_square.jpg', 'Свино-говяжий фарш домашний, помидоры, болгарский перец и сыр.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="./images/pizza_square.jpg" alt="Пицца квадратная." class="product-img" loading="lazy" decoding="async" itemprop="image">
+        <div class="product-info">
+          <h3 itemprop="name">Пицца квадратная</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">150</span> ₽</p>
+          <p class="description" itemprop="description">Свино-говяжий фарш домашний, помидоры, болгарский перец и сыр.</p>
+        </div>
+      </div>
+
+      <div class="product-card" id="p-hotdog" onclick="openModal('Хот-дог', './images/hotdog.jpg', 'Жаренные копченные сосиски, лист салата айсберг, помидор, маринованная морковь, огурец малосольный, горчица и чесночный соус.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="./images/hotdog.jpg" alt="Хот-дог." class="product-img" loading="lazy" decoding="async" itemprop="image">
+        <div class="product-info">
+          <h3 itemprop="name">Хот-дог</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">150</span> ₽</p>
+          <p class="description" itemprop="description">Жаренные копченные сосиски, лист салата "айсберг", помидор, маринованная морковь, огурец малосольный, горчица и чесночный соус.</p>
+        </div>
+      </div>
+
+      
+      <div class="product-card" id="p-kish" onclick="openModal('Киш', './images/kish.jpg', 'Картошка, куриное филе, жареный лук, грибы, сыр и белый соус.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="./images/kish.jpg" alt="Киш." class="product-img" loading="lazy" decoding="async" itemprop="image">
+        <div class="product-info">
+          <h3 itemprop="name">Киш</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">150</span> ₽</p>
+          <p class="description" itemprop="description">Картошка, куриное филе, жареный лук, грибы, сыр и белый соус.</p>
+        </div>
+      </div>
+
+      <div class="product-card" id="p-valovan-kapusta" onclick="openModal('Валован', './images/valovan_kapusta.jpg', 'Капуста и куриное филе.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="./images/valovan_kapusta.jpg" alt="Киш." class="product-img" loading="lazy" decoding="async" itemprop="image">
+        <div class="product-info">
+          <h3 itemprop="name">Валован</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">150</span> ₽</p>
+          <p class="description" itemprop="description">Капуста и куриное филе.</p>
+        </div>
+      </div>
+
+      <div class="product-card" id="p-valovan-potato" onclick="openModal('Валован', './images/valovan_potato.jpg', 'Картошка, курица, грибы.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="./images/valovan_potato.jpg" alt="Валован." class="product-img" loading="lazy" decoding="async" itemprop="image">
+        <div class="product-info">
+          <h3 itemprop="name">Валован</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">150</span> ₽</p>
+          <p class="description" itemprop="description">Картошка, курица, грибы.</p>
+        </div>
+      </div>
+
+      <div class="product-card" id="p-xichin" onclick="openModal('Хичин', './images/xichin.jpg', '3 вида сыра, приготовлено на сковородке без масла.', '200 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="./images/xichin.jpg" alt="Хичин." class="product-img" loading="lazy" decoding="async" itemprop="image">
+        <div class="product-info">
+          <h3 itemprop="name">Хичин</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">200</span> ₽</p>
+          <p class="description" itemprop="description">3 вида сыра, приготовлено на сковородке без масла.</p>
+        </div>
+      </div>
+
     </div>
+
+
+
 
     <section class="about" id="about">
       <h2 style="margin-bottom:.75rem;color:var(--burgundy)">О нас</h2>
