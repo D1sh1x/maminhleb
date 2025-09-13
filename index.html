@@ -1,854 +1,414 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Базовое SEO -->
+  <title>Мамин хлеб — домашняя выпечка с любовью | Хлеб, самса, пироги, бургеры</title>
+  <meta name="description" content="Мамин хлеб — домашняя выпечка: хлеб на закваске, самса, курник, бургеры, лаваш. Всегда свежая продукция. 📍 Видова 169–175. Тел.: +7 (989) 854-66-91" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#800020" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/logo-min-64.png" sizes="64x64">
+  <link rel="apple-touch-icon" href="/logo-min-512.png">
+  <link rel="canonical" href="https://maminhlebb.ru/" />
+  <link rel="alternate" hreflang="ru" href="https://maminhlebb.ru/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <!-- Верификации (Search Console / Яндекс) -->
   <meta name="google-site-verification" content="7H3UnzRy5LBJXjN60NycnpWEDrakkYbc2-_cQxb082w" />
-  <title>Мамин хлеб — домашняя выпечка с любовью</title>
+  <meta name="yandex-verification" content="14a10aaa8795a6ae" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="Мамин хлеб" />
+  <meta property="og:title" content="Мамин хлеб — домашняя выпечка с любовью" />
+  <meta property="og:description" content="Свежий хлеб, самса, курник, бургеры и лаваш. 📍 Видова 169–175. Тел.: +7 (989) 854-66-91" />
+  <meta property="og:url" content="https://maminhlebb.ru/" />
+  <meta property="og:image" content="https://maminhlebb.ru/og-cover-1200x630.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Мамин хлеб — домашняя выпечка с любовью" />
+  <meta name="twitter:description" content="Свежая выпечка каждый день. 📍 Видова 169–175. Тел.: +7 (989) 854-66-91" />
+  <meta name="twitter:image" content="https://maminhlebb.ru/og-cover-1200x630.png" />
+
+  <!-- Перфоманс -->
+  <link rel="preload" as="image" href="/images/bread.jpg" fetchpriority="high" />
+
   <style>
-    /* Палитра */
-    :root {
-      --beige: #F5F0E6;
-      --burgundy: #800020;
-      --light-burgundy: #9e1a33;
-      --white: #fff;
-      --dark-text: #332b24;
+    :root { --beige:#F5F0E6; --burgundy:#800020; --light-burgundy:#9e1a33; --white:#fff; --dark-text:#332b24; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color:var(--beige); color:var(--dark-text); line-height:1.6; overflow-x:hidden; }
+
+    /* Топ-навигация с логотипом */
+    .topbar { background:#fff; border-bottom:1px solid rgba(0,0,0,.06); }
+    .topbar .wrap { max-width:1200px; margin:0 auto; padding:.6rem 1rem; display:flex; align-items:center; gap:1rem; }
+    .brand { display:flex; align-items:center; gap:.6rem; color:var(--burgundy); font-weight:700; text-decoration:none; }
+    .brand img { width:36px; height:36px; }
+
+    .topnav { margin-left:auto; display:flex; gap:1rem; }
+    .topnav a { color:var(--burgundy); text-decoration:none; font-weight:600; }
+    .topnav a:hover { text-decoration:underline; }
+
+    header { background-color:var(--burgundy); color:#fff; text-align:center; padding:2rem 1rem; box-shadow:0 4px 10px rgba(0,0,0,.1); animation:fadeInDown 1s ease-out forwards; opacity:0; }
+    @keyframes fadeInDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+    header h1 { font-size:2.6rem; letter-spacing:0.5px; margin-bottom:.4rem; font-weight:700; }
+    header p { font-size:1.1rem; opacity:.95; }
+
+    .slider-container{ position:relative; max-width:1200px; margin:2rem auto; overflow:hidden; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.15); }
+    .slider{ display:flex; transition:transform .6s ease-in-out; will-change:transform; }
+    .slide{ min-width:100%; position:relative; }
+    .slide img{ width:100%; height:400px; object-fit:cover; display:block; }
+    .slide-content{ position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(0,0,0,.8)); color:#fff; padding:2rem; text-align:center; }
+    .slide-content h3{ font-size:2rem; margin-bottom:.4rem; font-weight:700; text-shadow:0 0 12px rgba(0,0,0,.35); }
+
+    .steam{ position:absolute; top:10%; left:50%; transform:translateX(-50%); width:60px; height:120px; background:radial-gradient(circle, rgba(255,255,255,.2), transparent 70%); border-radius:50%; pointer-events:none; animation:steamRise 4s infinite ease-in-out; z-index:5; }
+    @keyframes steamRise{0%{opacity:0;transform:translateX(-50%) translateY(300px);width:20px;height:30px}50%{opacity:.7;transform:translateX(-50%) translateY(-50px);width:40px;height:80px}100%{opacity:0;transform:translateX(-50%) translateY(-200px);width:60px;height:120px}}
+
+    .slider-nav{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.9); color:var(--burgundy); border:none; border-radius:50%; width:50px; height:50px; font-size:1.8rem; cursor:pointer; z-index:10; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,.2); }
+    .slider-nav:hover{ background:#fff; transform:translateY(-50%) scale(1.06); }
+    .slider-nav.prev{ left:16px; } .slider-nav.next{ right:16px; }
+
+    .slider-dots{ display:flex; justify-content:center; margin-top:1rem; gap:10px; }
+    .dot{ width:12px;height:12px;background:rgba(0,0,0,.2);border-radius:50%;cursor:pointer;transition:background .3s; }
+    .dot.active{ background:#fff; box-shadow:0 0 8px rgba(0,0,0,.2); }
+
+    .container{ max-width:1200px; margin:2rem auto; padding:0 1.5rem; }
+    .section-title{ text-align:center; margin-bottom:2rem; color:var(--burgundy); font-size:2rem; position:relative; }
+    .section-title::after{ content:''; display:block; width:80px; height:3px; background:var(--burgundy); margin:.5rem auto; }
+
+    .products-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:2rem; }
+    .product-card{ background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 6px 15px rgba(0,0,0,.1); transition:transform .3s ease, box-shadow .3s ease; cursor:pointer; }
+    .product-card:hover{ transform:translateY(-6px); box-shadow:0 16px 26px rgba(0,0,0,.16); }
+    .product-img{ width:100%; height:200px; object-fit:cover; border-bottom:4px solid var(--light-burgundy); }
+    .product-info{ padding:1.2rem; text-align:center; }
+    .product-info h3{ color:var(--burgundy); margin-bottom:.5rem; font-size:1.25rem; }
+    .product-info .price{ font-size:1.15rem; font-weight:700; color:var(--burgundy); }
+    .product-info .description{ color:#555; font-size:.95rem; margin-top:.25rem; }
+
+    .about, .contact { background:#fff; border-radius:12px; padding:1.5rem; box-shadow:0 6px 15px rgba(0,0,0,.06); margin-top:2rem; }
+
+    footer{ background:var(--burgundy); color:#fff; text-align:center; padding:2rem 1rem; margin-top:3rem; }
+
+    @media (max-width:768px){
+      header h1{ font-size:2rem; }
+      .section-title{ font-size:1.7rem; }
+      .slide-content h3{ font-size:1.5rem; }
+      .slide img{ height:280px; }
+      .slider-nav{ width:40px; height:40px; font-size:1.5rem; }
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: var(--beige);
-      color: var(--dark-text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    header {
-      background-color: var(--burgundy);
-      color: var(--white);
-      text-align: center;
-      padding: 2rem 1rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      animation: fadeInDown 1s ease-out forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      letter-spacing: 1px;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      animation: pulseText 3s infinite alternate;
-    }
-
-    @keyframes pulseText {
-      from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
-      to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.6); }
-    }
-
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      animation: fadeInUp 1s ease-out 0.3s forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Слайдер */
-    .slider-container {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 16px;
-      margin: 2rem auto;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      animation: slideIn 1.2s ease-out forwards;
-      opacity: 0;
-    }
-
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .slider {
-      display: flex;
-      transition: transform 0.6s ease-in-out;
-    }
-
-    .slide {
-      min-width: 100%;
-      position: relative;
-    }
-
-    .slide img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .slide-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.8));
-      color: var(--white);
-      padding: 2rem;
-      text-align: center;
-      animation: slideContentUp 1s ease-out 0.5s forwards;
-      opacity: 0;
-    }
-
-    @keyframes slideContentUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .slide-content h3 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      animation: glowText 2s infinite alternate;
-    }
-
-    @keyframes glowText {
-      from { text-shadow: 0 0 5px rgba(255,255,255,0.5); }
-      to { text-shadow: 0 0 15px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.7); }
-    }
-
-    /* Анимация "пар" над хлебом (дымка) */
-    .steam {
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 120px;
-      background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: steamRise 4s infinite ease-in-out;
-      z-index: 5;
-    }
-
-    @keyframes steamRise {
-      0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(300px);
-        width: 20px;
-        height: 30px;
-      }
-      50% {
-        opacity: 0.7;
-        transform: translateX(-50%) translateY(-50px);
-        width: 40px;
-        height: 80px;
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(-200px);
-        width: 60px;
-        height: 120px;
-      }
-    }
-
-    /* Кнопки навигации */
-    .slider-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(255,255,255,0.9);
-      color: var(--burgundy);
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 1.8rem;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-      animation: bounceIn 1s ease-out 0.8s forwards;
-      opacity: 0;
-    }
-
-    @keyframes bounceIn {
-      from {
-        opacity: 0;
-        transform: translateY(50px) scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(-50%) scale(1);
-      }
-    }
-
-    .slider-nav:hover {
-      background-color: var(--white);
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    /* Точки навигации */
-    .slider-dots {
-      display: flex;
-      justify-content: center;
-      margin-top: 1rem;
-      gap: 10px;
-      animation: dotsFadeIn 1s ease-out 1s forwards;
-      opacity: 0;
-    }
-
-    @keyframes dotsFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      background-color: rgba(255,255,255,0.5);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s;
-      animation: dotPulse 2s infinite alternate;
-    }
-
-    @keyframes dotPulse {
-      from { box-shadow: 0 0 5px rgba(255,255,255,0.5); }
-      to { box-shadow: 0 0 10px rgba(255,255,255,0.9); }
-    }
-
-    .dot.active {
-      background-color: var(--white);
-      animation: dotPulse 2s infinite alternate;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-      color: var(--burgundy);
-      font-size: 2rem;
-      position: relative;
-      animation: titleGrow 1s ease-out 1.2s forwards;
-      opacity: 0;
-    }
-
-    @keyframes titleGrow {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 3px;
-      background-color: var(--burgundy);
-      margin: 0.5rem auto;
-      animation: lineDraw 1s ease-out 1.4s forwards;
-      opacity: 0;
-    }
-
-    @keyframes lineDraw {
-      from { width: 0; opacity: 0; }
-      to { width: 80px; opacity: 1; }
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .product-card {
-      background-color: var(--white);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: cardAppear 0.6s ease-out forwards;
-    }
-
-    .product-card:nth-child(1) { animation-delay: 0.1s; }
-    .product-card:nth-child(2) { animation-delay: 0.2s; }
-    .product-card:nth-child(3) { animation-delay: 0.3s; }
-    .product-card:nth-child(4) { animation-delay: 0.4s; }
-    .product-card:nth-child(5) { animation-delay: 0.5s; }
-    .product-card:nth-child(6) { animation-delay: 0.6s; }
-    .product-card:nth-child(7) { animation-delay: 0.7s; }
-    .product-card:nth-child(8) { animation-delay: 0.8s; }
-    .product-card:nth-child(9) { animation-delay: 0.9s; }
-
-    @keyframes cardAppear {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .product-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .product-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-bottom: 4px solid var(--light-burgundy);
-      transition: transform 0.4s ease;
-    }
-
-    .product-card:hover .product-img {
-      transform: scale(1.05);
-    }
-
-    .product-info {
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    .product-info h3 {
-      color: var(--burgundy);
-      margin-bottom: 0.5rem;
-      font-size: 1.4rem;
-      transition: color 0.3s;
-    }
-
-    .product-card:hover h3 {
-      color: var(--burgundy);
-      text-shadow: 0 2px 5px rgba(128, 0, 32, 0.2);
-    }
-
-    .product-info p.price {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--burgundy);
-      margin: 0.5rem 0;
-      transition: transform 0.3s;
-    }
-
-    .product-card:hover .price {
-      transform: scale(1.05);
-    }
-
-    .product-info p.description {
-      color: #555;
-      font-size: 0.95rem;
-      transition: opacity 0.3s;
-    }
-
-    .product-card:hover .description {
-      opacity: 0.8;
-    }
-
-    /* Модальное окно */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      animation: modalFadeIn 0.5s ease-out;
-    }
-
-    @keyframes modalFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .modal-content {
-      background-color: var(--white);
-      border-radius: 16px;
-      max-width: 90%;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-      transform: translateY(30px);
-      animation: modalSlideIn 0.6s ease-out forwards;
-    }
-
-    @keyframes modalSlideIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .modal-header {
-      background-color: var(--burgundy);
-      color: var(--white);
-      padding: 1.5rem;
-      text-align: center;
-      border-top-left-radius: 16px;
-      border-top-right-radius: 16px;
-      position: relative;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .close-btn:hover {
-      transform: rotate(90deg);
-    }
-
-    .modal-body {
-      padding: 1.5rem;
-    }
-
-    .modal-img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      transition: transform 0.4s;
-    }
-
-    .modal-content:hover .modal-img {
-      transform: scale(1.03);
-    }
-
-    footer {
-      background-color: var(--burgundy);
-      color: var(--white);
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 4rem;
-      animation: fadeInUp 1s ease-out 1.6s forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-      .section-title {
-        font-size: 1.8rem;
-      }
-      .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      }
-      .product-info h3 {
-        font-size: 1.2rem;
-      }
-      .product-info p.price {
-        font-size: 1.1rem;
-      }
-      .slide-content h3 {
-        font-size: 1.6rem;
-      }
-      .slide-content p {
-        font-size: 1rem;
-      }
-      .slider {
-        height: 280px;
-      }
-      .slider img {
-        height: 280px;
-      }
-      .slider-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
-      }
-      .prev {
-        left: 10px;
-      }
-      .next {
-        right: 10px;
-      }
-    }
-
-    /* Фикс: стрелки на десктопе */
-.slider-nav.prev { left: 16px; }
-.slider-nav.next { right: 16px; }
-
-/* Микро-оптимизация для плавности */
-.slider { will-change: transform; }
-
-/* Доступность: у кого включено reduced motion — без анимаций */
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-}
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
   </style>
+
+  <!-- JSON-LD: Local Business (Bakery) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Мамин хлеб",
+    "url": "https://maminhlebb.ru/",
+    "image": [
+      "https://maminhlebb.ru/images/bread.jpg",
+      "https://maminhlebb.ru/images/samsa.jpg",
+      "https://maminhlebb.ru/images/burger.jpg"
+    ],
+    "telephone": "+7-989-854-66-91",
+    "priceRange": "₽₽",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Видова 169-175",
+      "addressCountry": "RU"
+    },
+    "servesCuisine": "Выпечка, пироги, бургеры"
+  }
+  </script>
+
+  <!-- JSON-LD: Products -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Product",
+        "name":"Сосиска в тесте",
+        "image":"https://maminhlebb.ru/images/sosiska.jpg",
+        "description":"Хрустящее тесто и сочная сосиска — классика!",
+        "url":"https://maminhlebb.ru/#p-sosiska",
+        "offers":{"@type":"Offer","price":"80","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"Самса с курицей",
+        "image":"https://maminhlebb.ru/images/samsa.jpg",
+        "description":"Традиционная самса с нежной курицей и специями.",
+        "url":"https://maminhlebb.ru/#p-samsa-chicken",
+        "offers":{"@type":"Offer","price":"150","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"Самса с говядиной",
+        "image":"https://maminhlebb.ru/images/samsa.jpg",
+        "description":"Классическая самса с говядиной и пряностями.",
+        "url":"https://maminhlebb.ru/#p-samsa-beef",
+        "offers":{"@type":"Offer","price":"160","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"Маленькая пицца",
+        "image":"https://maminhlebb.ru/images/pizza.png",
+        "description":"Персональная пицца с томатным соусом, моцареллой и базиликом.",
+        "url":"https://maminhlebb.ru/#p-pizza",
+        "offers":{"@type":"Offer","price":"150","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"Лаваш",
+        "image":"https://maminhlebb.ru/images/lavash.png",
+        "description":"Тонкий, мягкий лаваш — основа для шавермы и сендвичей.",
+        "url":"https://maminhlebb.ru/#p-lavash",
+        "offers":{"@type":"Offer","price":"80","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"Бургеры",
+        "image":"https://maminhlebb.ru/images/burger.jpg",
+        "description":"Домашние бургеры с сочной котлетой, сыром и овощами.",
+        "url":"https://maminhlebb.ru/#p-burger",
+        "offers":{"@type":"Offer","price":"250","priceCurrency":"RUB","availability":"https://schema.org/InStock"}
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
-  <!-- Шапка -->
+  <!-- Топ-панель -->
+  <div class="topbar">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="На главную">
+        <img src="/logo-min.svg" alt="Логотип Мамин хлеб">
+        <span>Мамин хлеб</span>
+      </a>
+      <nav class="topnav" aria-label="Навигация">
+        <a href="#products">Каталог</a>
+        <a href="#about">О нас</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Хедер -->
   <header>
     <h1>Мамин хлеб</h1>
     <p>Домашняя выпечка с любовью</p>
   </header>
 
   <!-- Слайдер -->
-  <div class="slider-container">
+  <div class="slider-container" aria-label="Галерея продукции">
     <div class="slider">
-      <!-- Слайд 1 -->
       <div class="slide">
-        <img src="./images/bread.jpg" alt="Свежий хлеб из печи">
-        <div class="slide-content">
-          <h3>Свежий хлеб каждый день</h3>
-          <p>Только натуральные ингредиенты</p>
-        </div>
-        <!-- Пар над хлебом -->
-        <div class="steam"></div>
+        <img src="/images/bread.jpg" alt="Свежий хлеб из печи" decoding="async" fetchpriority="high">
+        <div class="slide-content"><h3>Свежий хлеб каждый день</h3><p>Только натуральные ингредиенты</p></div>
+        <div class="steam" aria-hidden="true"></div>
       </div>
-
-      <!-- Слайд 2 -->
       <div class="slide">
-        <img src="./images/samsa.jpg" alt="Самса с курицей">
-        <div class="slide-content">
-          <h3>Ароматная самса с курицей</h3>
-          <p>Хрустящее тесто, сочная начинка — как у бабушки</p>
-        </div>
-        <div class="steam"></div>
+        <img src="/images/samsa.jpg" alt="Самса с курицей" loading="lazy" decoding="async">
+        <div class="slide-content"><h3>Ароматная самса с курицей</h3><p>Хрустящее тесто, сочная начинка — как у бабушки</p></div>
+        <div class="steam" aria-hidden="true"></div>
       </div>
-
-      <!-- Слайд 3 -->
       <div class="slide">
-        <img src="./images/kurnik.png" alt="Курник на обед">
-        <div class="slide-content">
-          <h3>Праздничный курник</h3>
-          <p>Традиционный русский пирог с грибами и яйцами</p>
-        </div>
-        <div class="steam"></div>
+        <img src="/images/kurnik.jpg" alt="Праздничный курник" loading="lazy" decoding="async">
+        <div class="slide-content"><h3>Праздничный курник</h3><p>Традиционный русский пирог с грибами и яйцами</p></div>
+        <div class="steam" aria-hidden="true"></div>
       </div>
-
-      <!-- Слайд 4 -->
       <div class="slide">
-        <img src="./images/burger.jpg" alt="Бургеры с любовью">
-        <div class="slide-content">
-          <h3>Домашние бургеры</h3>
-          <p>Сочные котлеты, свежие овощи, мягкие булочки</p>
-        </div>
-        <div class="steam"></div>
+        <img src="/images/burger.jpg" alt="Домашние бургеры" loading="lazy" decoding="async">
+        <div class="slide-content"><h3>Домашние бургеры</h3><p>Сочные котлеты, свежие овощи, мягкие булочки</p></div>
+        <div class="steam" aria-hidden="true"></div>
       </div>
-
-      <!-- Слайд 5 -->
       <div class="slide">
-        <img src="./images/sosiska.jpg" alt="Лаваш и сосиска">
-        <div class="slide-content">
-          <h3>Сосиска в тесте — быстрый перекус</h3>
-          <p>Идеально для работы, школы, прогулки</p>
-        </div>
-        <div class="steam"></div>
+        <img src="/images/sosiska.jpg" alt="Сосиска в тесте" loading="lazy" decoding="async">
+        <div class="slide-content"><h3>Сосиска в тесте — быстрый перекус</h3><p>Идеально для работы, школы, прогулки</p></div>
+        <div class="steam" aria-hidden="true"></div>
       </div>
     </div>
-
-    <!-- Кнопки навигации -->
-    <button class="slider-nav prev"><</button>
-    <button class="slider-nav next">></button>
-
-    <!-- Точки навигации -->
-    <div class="slider-dots">
-      <span class="dot active" data-index="0"></span>
-      <span class="dot" data-index="1"></span>
-      <span class="dot" data-index="2"></span>
-      <span class="dot" data-index="3"></span>
-      <span class="dot" data-index="4"></span>
+    <button class="slider-nav prev" aria-label="Предыдущий слайд" title="Предыдущий"><</button>
+    <button class="slider-nav next" aria-label="Следующий слайд" title="Следующий">></button>
+    <div class="slider-dots" role="tablist" aria-label="Переход по слайдам">
+      <span class="dot active" data-index="0" role="tab" aria-selected="true"></span>
+      <span class="dot" data-index="1" role="tab" aria-selected="false"></span>
+      <span class="dot" data-index="2" role="tab" aria-selected="false"></span>
+      <span class="dot" data-index="3" role="tab" aria-selected="false"></span>
+      <span class="dot" data-index="4" role="tab" aria-selected="false"></span>
     </div>
   </div>
 
-  <!-- Основной контент -->
-  <div class="container">
+  <!-- Каталог -->
+  <div class="container" id="products">
     <h2 class="section-title">Наши продукты</h2>
 
-    <div class="products-grid">
-      <!-- Карточка 1 -->
-      <div class="product-card" onclick="openModal('Сосиска в тесте', 'https://via.placeholder.com/400x300?text=Сосиска+в+тесте', 'Вкусная сосиска в хрустящем тесте, идеально для перекуса.', '120 ₽')">
-        <img src="./images/sosiska.jpg" alt="Сосиска в тесте" class="product-img">
+    <div class="products-grid" itemscope itemtype="https://schema.org/ItemList">
+      <div class="product-card" id="p-sosiska" onclick="openModal('Сосиска в тесте', '/images/sosiska.jpg', 'Вкусная сосиска в хрустящем тесте, идеально для перекуса.', '80 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="/images/sosiska.jpg" alt="Сосиска в тесте" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
-          <h3>Сосиска в тесте</h3>
-          <p class="price">80 ₽</p>
-          <p class="description">Хрустящее тесто и сочная сосиска — классика!</p>
+          <h3 itemprop="name">Сосиска в тесте</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">80</span> ₽</p>
+          <p class="description" itemprop="description">Хрустящее тесто и сочная сосиска — классика!</p>
         </div>
       </div>
 
-      <!-- Карточка 2 -->
-      <div class="product-card" onclick="openModal('Самса с курицей', 'https://via.placeholder.com/400x300?text=Самса+с+курицей', 'Традиционная самса с нежной курицей и специями.', '150 ₽')">
-        <img src="./images/samsa.jpg" alt="Самса с курицей" class="product-img">
+      <div class="product-card" id="p-samsa-chicken" onclick="openModal('Самса с курицей', '/images/samsa.jpg', 'Традиционная самса с нежной курицей и специями.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="/images/samsa.jpg" alt="Самса с курицей" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
-          <h3>Самса с курицей</h3>
-          <p class="price">150 ₽</p>
-          <p class="description">Пышное слоёное тесто с ароматной курицей.</p>
+          <h3 itemprop="name">Самса с курицей</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">150</span> ₽</p>
+          <p class="description" itemprop="description">Пышное слоёное тесто с ароматной курицей.</p>
         </div>
       </div>
 
-      <!-- Карточка 3 -->
-      <div class="product-card" onclick="openModal('Самса с говядиной', 'https://via.placeholder.com/400x300?text=Самса+с+говядиной', 'Насыщенная говядина с луком и зирой в хрустящей корочке.', '160 ₽')">
-        <img src="./images/samsa.jpg" alt="Самса с говядиной" class="product-img">
+      <div class="product-card" id="p-samsa-beef" onclick="openModal('Самса с говядиной', '/images/samsa.jpg', 'Насыщенная говядина с луком и зирой в хрустящей корочке.', '160 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="/images/samsa.jpg" alt="Самса с говядиной" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
-          <h3>Самса с говядиной</h3>
-          <p class="price">160 ₽</p>
-          <p class="description">Классическая самса с мясом и пряностями.</p>
+          <h3 itemprop="name">Самса с говядиной</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">160</span> ₽</p>
+          <p class="description" itemprop="description">Классическая самса с мясом и пряностями.</p>
         </div>
       </div>
 
-      <!-- Карточка 4 -->
-      <div class="product-card" onclick="openModal('Маленькая пицца', 'https://via.placeholder.com/400x300?text=Маленькая+пицца', 'Персональная пицца с томатным соусом, моцареллой и базиликом.', '180 ₽')">
-        <img src="./images/pizza.png" alt="Маленькая пицца" class="product-img">
+      <div class="product-card" id="p-pizza" onclick="openModal('Маленькая пицца', '/images/pizza.png', 'Персональная пицца с томатным соусом, моцареллой и базиликом.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="/images/pizza.png" alt="Маленькая пицца" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
-          <h3>Маленькая пицца</h3>
-          <p class="price">150 ₽</p>
-          <p class="description">Идеальный размер для одного — свежая и горячая!</p>
+          <h3 itemprop="name">Маленькая пицца</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">150</span> ₽</p>
+          <p class="description" itemprop="description">Идеальный размер для одного — свежая и горячая!</p>
         </div>
       </div>
 
-      <!-- Карточка 5 -->
-      <div class="product-card" onclick="openModal('Хлеб', 'https://via.placeholder.com/400x300?text=Хлеб', 'Домашний ржано-пшеничный хлеб с закваской.', '120 ₽')">
-        <img src="./images/bread.jpg" alt="Хлеб" class="product-img">
+      <div class="product-card" onclick="openModal('Хлеб', '/images/bread.jpg', 'Домашний ржано-пшеничный хлеб с закваской.', '30/50 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="/images/bread.jpg" alt="Хлеб на закваске" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
-          <h3>Хлеб</h3>
-          <p class="price">30/50 ₽</p>
-          <p class="description">Ароматный, с корочкой и мягким мякишем.</p>
+          <h3 itemprop="name">Хлеб</h3>
+          <p class="price"><span>30/50</span> ₽</p>
+          <p class="description" itemprop="description">Ароматный, с корочкой и мягким мякишем.</p>
         </div>
       </div>
 
-      <!-- Карточка 6 -->
-      <div class="product-card" onclick="openModal('Лаваш', 'https://via.placeholder.com/400x300?text=Лаваш', 'Тонкий, мягкий лаваш — основа для шавермы и сендвичей.', '80 ₽')">
-        <img src="./images/lavash.png" alt="Лаваш" class="product-img">
+      <div class="product-card" id="p-lavash" onclick="openModal('Лаваш', '/images/lavash.png', 'Тонкий, мягкий лаваш — основа для шавермы и сендвичей.', '80 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="/images/lavash.png" alt="Лаваш тонкий и мягкий" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
-          <h3>Лаваш</h3>
-          <p class="price">80 ₽</p>
-          <p class="description">Свежий, без консервантов — как у бабушки.</p>
+          <h3 itemprop="name">Лаваш</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">80</span> ₽</p>
+          <p class="description" itemprop="description">Свежий, без консервантов — как у бабушки.</p>
         </div>
       </div>
 
-      <!-- Карточка 8 -->
-      <div class="product-card" onclick="openModal('Чабат', 'https://via.placeholder.com/400x300?text=Чабат', 'Итальянский хлеб с тонкой корочкой и воздушной структурой.', '140 ₽')">
-        <img src="./images/chabat.jpg" alt="Чабат" class="product-img">
+      <div class="product-card" onclick="openModal('Чабат', '/images/pizza.jpg', 'Пирог с курицей, овощами и грибами.', '150 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="/images/pizza.jpg" alt="Чабат — пирог с курицей и овощами" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
-          <h3>Чабат</h3>
-          <p class="price">150 ₽</p>
-          <p class="description">Ароматный, хрустящий, идеален с маслом.</p>
+          <h3 itemprop="name">Чабат</h3>
+          <p class="price"><span>150</span> ₽</p>
+          <p class="description" itemprop="description">Пирог с курицей, овощами и грибами.</p>
         </div>
       </div>
 
-      <!-- Карточка 9 -->
-      <div class="product-card" onclick="openModal('Бургеры', 'https://via.placeholder.com/400x300?text=Бургеры', 'Домашние бургеры с сочной котлетой, сыром и овощами.', '220 ₽')">
-        <img src="./images/burger.jpg" alt="Бургеры" class="product-img">
+      <div class="product-card" id="p-burger" onclick="openModal('Бургеры', '/images/burger.jpg', 'Домашние бургеры с сочной котлетой, сыром и овощами.', '250 ₽')" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+        <img src="/images/burger.jpg" alt="Домашние бургеры с сочной котлетой" class="product-img" loading="lazy" decoding="async" itemprop="image">
         <div class="product-info">
-          <h3>Бургеры</h3>
-          <p class="price">250 ₽</p>
-          <p class="description">Свежие булочки, сочная котлета и домашний соус.</p>
+          <h3 itemprop="name">Бургеры</h3>
+          <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">250</span> ₽</p>
+          <p class="description" itemprop="description">Свежие булочки, сочная котлета и домашний соус.</p>
         </div>
       </div>
     </div>
+
+    <section class="about" id="about">
+      <h2 style="margin-bottom:.75rem;color:var(--burgundy)">О нас</h2>
+      <p>«Мамин хлеб» — семейная пекарня. Мы печём ежедневно из натуральных ингредиентов: без улучшителей и лишних добавок. Наши бестселлеры — хлеб на закваске, самса и домашние бургеры.</p>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 style="margin-bottom:.75rem;color:var(--burgundy)">Контакты</h2>
+      <address>
+        📍 <strong>Адрес:</strong> Видова 169–175<br>
+        ☎️ <strong>Телефон:</strong> <a href="tel:+79898546691">+7 (989) 854-66-91</a><br>
+        🕘 <strong>Время работы:</strong> ежедневно, 9:00–21:00
+      </address>
+    </section>
   </div>
 
-  <!-- Модальное окно -->
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
+  <!-- Модалка -->
+  <div id="myModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:1000;justify-content:center;align-items:center;">
+    <div class="modal-content" style="background:#fff;border-radius:16px;max-width:90%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 15px 30px rgba(0,0,0,.3);">
+      <div class="modal-header" style="background:var(--burgundy);color:#fff;padding:1.5rem;text-align:center;border-top-left-radius:16px;border-top-right-radius:16px;position:relative;">
+        <button class="close-btn" onclick="closeModal()" aria-label="Закрыть" style="position:absolute;top:1rem;right:1rem;font-size:2rem;background:none;border:none;color:#fff;cursor:pointer;">×</button>
         <h2 id="modalTitle"></h2>
       </div>
-      <div class="modal-body">
-        <img id="modalImg" class="modal-img" alt="Продукт">
+      <div class="modal-body" style="padding:1.5rem;">
+        <img id="modalImg" class="modal-img" alt="Продукт" style="width:100%;height:300px;object-fit:cover;border-radius:12px;margin-bottom:1.2rem;">
         <p id="modalDescription"></p>
-        <p id="modalPrice" style="font-weight: bold; color: var(--burgundy); margin-top: 1rem;"></p>
+        <p id="modalPrice" style="font-weight:bold;color:var(--burgundy);margin-top:1rem;"></p>
       </div>
     </div>
   </div>
 
-  <!-- Подвал -->
   <footer>
     <p>&copy; 2025 Мамин хлеб. Все права защищены.</p>
-    <p>📍 Видова 169-175 | Телефон: +7 (989) 854-66-91</p>
+    <p>📍 Видова 169–175 | Телефон: <a href="tel:+79898546691" style="color:#fff;">+7 (989) 854-66-91</a></p>
   </footer>
 
   <script>
-    // ---------- СЛАЙДЕР (фикс + улучшения) ----------
+    // Слайдер
     const sliderContainer = document.querySelector('.slider-container');
     const sliderTrack = document.querySelector('.slider');
     const slides = Array.from(document.querySelectorAll('.slide'));
     const dots = Array.from(document.querySelectorAll('.dot'));
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
-  
-    let currentSlide = 0;
-    let autoTimer = null;
-  
-    function clampIndex(idx) {
-      if (idx >= slides.length) return 0;
-      if (idx < 0) return slides.length - 1;
-      return idx;
+    let currentSlide = 0, autoTimer = null;
+
+    const clampIndex = (i)=> (i>=slides.length?0: i<0?slides.length-1 : i);
+    function updatePosition(){
+      const offset = currentSlide * sliderContainer.clientWidth;
+      sliderTrack.style.transform = `translateX(-${offset}px)`;
+      dots.forEach((d,i)=>{ d.classList.toggle('active', i===currentSlide); d.setAttribute('aria-selected', i===currentSlide); });
     }
-  
-    // Смещение считаем в px от ширины КОНТЕЙНЕРА
-    function updatePosition() {
-      const offsetPx = currentSlide * sliderContainer.clientWidth;
-      sliderTrack.style.transform = `translateX(-${offsetPx}px)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-    }
-  
-    function showSlide(idx) {
-      currentSlide = clampIndex(idx);
-      updatePosition();
-    }
-  
-    // Навигация точками
-    dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
-  
-    // Стрелки
-    prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
-    nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
-  
-    // Автопрокрутка с паузой при наведении
-    function startAuto() {
-      stopAuto();
-      autoTimer = setInterval(() => showSlide(currentSlide + 1), 5000);
-    }
-    function stopAuto() {
-      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
-    }
+    function showSlide(i){ currentSlide = clampIndex(i); updatePosition(); }
+    dots.forEach((d,i)=> d.addEventListener('click', ()=> showSlide(i)));
+    prevBtn.addEventListener('click', ()=> showSlide(currentSlide-1));
+    nextBtn.addEventListener('click', ()=> showSlide(currentSlide+1));
+    function startAuto(){ stopAuto(); autoTimer = setInterval(()=> showSlide(currentSlide+1), 5000); }
+    function stopAuto(){ if(autoTimer){ clearInterval(autoTimer); autoTimer=null; } }
     sliderContainer.addEventListener('mouseenter', stopAuto);
     sliderContainer.addEventListener('mouseleave', startAuto);
-  
-    // Реакция на ресайз (чтобы не «съезжало» после смены ширины)
     window.addEventListener('resize', updatePosition);
-  
-    // Клавиатура
-    sliderContainer.setAttribute('tabindex', '0');
-    sliderContainer.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft')  showSlide(currentSlide - 1);
-      if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
-    });
-  
-    // Свайпы (touch/pointer)
-    let startX = null;
-    sliderContainer.addEventListener('pointerdown', (e) => { startX = e.clientX; });
-    sliderContainer.addEventListener('pointerup', (e) => {
-      if (startX == null) return;
-      const dx = e.clientX - startX;
-      if (Math.abs(dx) > 50) {
-        if (dx < 0) showSlide(currentSlide + 1);
-        else        showSlide(currentSlide - 1);
-      }
-      startX = null;
-    });
-  
-    // Инициализация
-    showSlide(0);
-    startAuto();
-  
-    // ---------- МОДАЛКА (как было) ----------
-    function openModal(title, imgSrc, description, price) {
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalImg').src = imgSrc;
-      document.getElementById('modalDescription').textContent = description;
-      document.getElementById('modalPrice').textContent = price;
-      document.getElementById('myModal').style.display = 'flex';
-    }
-    function closeModal() {
-      document.getElementById('myModal').style.display = 'none';
-    }
-    window.onclick = function(event) {
-      const modal = document.getElementById('myModal');
-      if (event.target === modal) closeModal();
-    }
-  
-    // Делаем функции доступны для inline-обработчиков
-    window.openModal = openModal;
-    window.closeModal = closeModal;
-  </script>
-  
+    sliderContainer.setAttribute('tabindex','0');
+    sliderContainer.addEventListener('keydown', e=>{ if(e.key==='ArrowLeft') showSlide(currentSlide-1); if(e.key==='ArrowRight') showSlide(currentSlide+1); });
+    let startX=null;
+    sliderContainer.addEventListener('pointerdown', e=> startX=e.clientX);
+    sliderContainer.addEventListener('pointerup', e=>{ if(startX==null)return; const dx=e.clientX-startX; if(Math.abs(dx)>50){ dx<0?showSlide(currentSlide+1):showSlide(currentSlide-1); } startX=null; });
+    showSlide(0); startAuto();
 
+    // Модалка
+    function openModal(t, img, d, p){
+      document.getElementById('modalTitle').textContent=t;
+      const im=document.getElementById('modalImg'); im.src=img; im.alt=t;
+      document.getElementById('modalDescription').textContent=d;
+      document.getElementById('modalPrice').textContent=p;
+      document.getElementById('myModal').style.display='flex';
+    }
+    function closeModal(){ document.getElementById('myModal').style.display='none'; }
+    window.openModal=openModal; window.closeModal=closeModal;
+    window.onclick = (e)=>{ const m=document.getElementById('myModal'); if(e.target===m) closeModal(); };
+  </script>
+
+  <noscript>
+    <div style="max-width:1200px;margin:1rem auto;padding:1rem;background:#fff;border-radius:12px">
+      Включите JavaScript, чтобы увидеть слайдер. Мы печём свежий хлеб, самсу, курник и бургеры каждый день!
+    </div>
+  </noscript>
 </body>
 </html>

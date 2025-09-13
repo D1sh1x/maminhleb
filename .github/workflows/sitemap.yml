@@ -1,0 +1,44 @@
+name: Generate sitemap.xml
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * 1" # Every Monday at 03:00 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate sitemap.xml
+        env:
+          DOMAIN: ${{ vars.SITE_DOMAIN || 'https://d1sh1x.github.io/maminhleb' }}
+        run: |
+          python --version
+          mkdir -p .github/scripts
+          echo "Using DOMAIN=$DOMAIN"
+          python .github/scripts/generate_sitemap.py
+
+      - name: Commit changes
+        run: |
+          if [[ -n "$(git status --porcelain sitemap.xml)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add sitemap.xml
+            git commit -m "chore: update sitemap.xml [skip ci]"
+            git push
+          else
+            echo "No changes to commit."
+          fi
